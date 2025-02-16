@@ -1,5 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useRef, useMemo } from "react";
+
 import * as THREE from "three";
 
 // ✅ Composant pour charger le modèle du Globe
@@ -44,7 +47,9 @@ const AnimatedStars = () => {
 
   return (
     <points ref={starsRef}>
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <bufferGeometry attach="geometry">
+        {/* eslint-disable-next-line react/no-unknown-property */}
         <bufferAttribute
           attach="attributes-position"
           array={positions}
@@ -52,7 +57,16 @@ const AnimatedStars = () => {
           count={numStars}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.} color={"#ffffff"} opacity={2} transparent depthWrite={false} blending={THREE.AdditiveBlending} />
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      <pointsMaterial 
+        size={0.5} 
+        color={"#ffffff"} 
+        opacity={1}
+        sizeAttenuation={true}
+        transparent 
+        depthWrite={false} 
+        blending={THREE.AdditiveBlending} 
+      />
     </points>
   );
 };
@@ -69,8 +83,11 @@ const Globe = () => {
       camera={{ position: [0, 0, 20], fov: 50 }}
     >
       {/* Lumières pour le Globe */}
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <ambientLight intensity={1.5} />
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <directionalLight position={[5, 5, 5]} intensity={3.0} color={"#ffffff"} />
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <pointLight position={[0, 0, 10]} intensity={12} color={"#99bbff"} />
 
       {/* ✅ Ajout des étoiles animées avec effet de scintillement */}
