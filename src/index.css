@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glitch-text {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glitch {
+    position: relative;
+    display: inline-block;
+    animation: glitch-animation 1s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.6;
+    color: red;
+    transform: translate(-2px, -2px);
+    clip-path: polygon(0 20%, 100% 10%, 100% 50%, 0% 40%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .glitch::after {
+    color: blue;
+    transform: translate(2px, 2px);
+  }
+  
+  @keyframes glitch-animation {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+  }
+  
+  .glitch:hover::before,
+  .glitch:hover::after {
+    transform: translate(-5px, -5px);
+  }
+  
