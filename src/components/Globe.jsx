@@ -1,17 +1,19 @@
-import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 // ✅ Composant pour charger le modèle du Globe
 const GlobeModel = () => {
-  const { scene } = useGLTF("/public/models/nglobe.glb");
+  const { scene } = useGLTF("/models/nglobe.glb");
   
   return (
     <primitive
+      // eslint-disable-next-line react/no-unknown-property
       object={scene}
       scale={[5, 5, 5]}
+      // eslint-disable-next-line react/no-unknown-property
       position={[0, 0, 0]}
+      // eslint-disable-next-line react/no-unknown-property
       rotation={[0, -Math.PI / 1.68, 0]} // ✅ Tourne la Terre vers l'Afrique
     />
   );
