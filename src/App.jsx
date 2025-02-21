@@ -29,7 +29,10 @@ function App() {
       </div>
       <Button setIsVisible={setIsVisible} />
       <Blog />
-    
+      
+      <footer className="relative bottom-0 w-full py-4 text-center text-sm bg-transparent backdrop-blur-sm z-50">
+        <p>&copy; {new Date().getFullYear()} GaiaGuard. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
