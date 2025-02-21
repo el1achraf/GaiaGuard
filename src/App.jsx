@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Globe from './components/Globe';
 import Button from "./components/Button"
 import Menu from "./components/Menu";
-import EarthHologram from "./components/EarthHologram";
-import Blog from "./components/Blog";
+
+import Blog from "./components/Blog"; 
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
 
       <div className="flex flex-row justify-center relative z-20 ">
         {isVisible && <Globe className="" />}
-        {!isVisible && <EarthHologram />}
+      
    
       </div>
       <Button setIsVisible={setIsVisible} />
