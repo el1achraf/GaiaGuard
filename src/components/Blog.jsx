@@ -1,6 +1,6 @@
 const Blog = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center bg-[#010A20] px-20 pt-20 gap-10">
+        <div className="min-h-screen flex flex-col items-center      px-20 pt-40 gap-10 ">
           {/* Title section */}
           <div className="text-white flex flex-col items-center space-y-4">
             <h2 className="text-3xl font-bold font-orbitron">Latest News</h2>

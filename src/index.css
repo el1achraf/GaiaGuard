@@ -6,6 +6,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'animate.css';
 
 .glitch-text {
     font-size: 4rem;
