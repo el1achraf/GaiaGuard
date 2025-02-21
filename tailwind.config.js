@@ -8,6 +8,12 @@ export default {
         Staatliches: ['Staatliches', 'serif'],
         orbitron: ['Orbitron', 'serif'],
       },
+      keyframes: {
+        scanline: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100%)' }
+        }
+      },
     },
   },
   plugins: [],

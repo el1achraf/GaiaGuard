@@ -1,33 +1,41 @@
 /* eslint-disable react/no-unknown-property */
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
+import {  useMemo } from "react";
 
 import * as THREE from "three";
+
+
 
 // ✅ Composant pour charger le modèle du Globe
 const GlobeModel = () => {
   const { scene } = useGLTF("/models/nglobe.glb");
+  const globeRef = useRef();
+
+  useFrame(() => {
+    if (globeRef.current) {
+      // Rotation lente autour de l'axe Y
+      globeRef.current.rotation.y -= 0.008;
+    }
+  });
   
   return (
     <primitive
-      // eslint-disable-next-line react/no-unknown-property
+      ref={globeRef}
       object={scene}
-      scale={[5, 5, 5]}
-      // eslint-disable-next-line react/no-unknown-property
-      position={[0, 0, 0]}
-      // eslint-disable-next-line react/no-unknown-property
+      scale={[4.5	, 4.5, 4.5]}
+      position={[0, -1.6, 0]}
       rotation={[0, -Math.PI / 1.68, 0]} // ✅ Tourne la Terre vers l'Afrique
     />
   );
 };
+// ✅ Composant pour afficher un effet d'étoiles statique
 
-// ✅ Composant pour générer un effet d'étoiles dynamique comme sur Moment Zero
-const AnimatedStars = () => {
+// ✅ Composant pour afficher un effet d'étoiles statique avec scintillement
+const StaticStars = () => {
+  const numStars = 25000;
   const starsRef = useRef();
-  const numStars = 10000;
-
-  // Génération des étoiles réparties aléatoirement
   const positions = useMemo(() => {
     const posArray = new Float32Array(numStars * 3);
     for (let i = 0; i < numStars; i++) {
@@ -40,16 +48,13 @@ const AnimatedStars = () => {
 
   useFrame(({ clock }) => {
     if (starsRef.current) {
-      starsRef.current.material.opacity = 1 + 0.4 * Math.sin(clock.getElapsedTime() * 2); // Effet de scintillement dynamique
-      starsRef.current.rotation.y += 0.0005; // Légère rotation
+      starsRef.current.material.opacity = 0.8 + 0.5* Math.sin(clock.getElapsedTime() * 2); // Scintillement des étoiles
     }
   });
 
   return (
     <points ref={starsRef}>
-      {/* eslint-disable-next-line react/no-unknown-property */}
       <bufferGeometry attach="geometry">
-        {/* eslint-disable-next-line react/no-unknown-property */}
         <bufferAttribute
           attach="attributes-position"
           array={positions}
@@ -57,9 +62,8 @@ const AnimatedStars = () => {
           count={numStars}
         />
       </bufferGeometry>
-      {/* eslint-disable-next-line react/no-unknown-property */}
       <pointsMaterial 
-        size={0.5} 
+        size={0.1} 
         color={"#ffffff"} 
         opacity={1}
         sizeAttenuation={true}
@@ -71,6 +75,7 @@ const AnimatedStars = () => {
   );
 };
 
+
 // ✅ Composant principal de la scène
 const Globe = () => {
   return (
@@ -78,23 +83,23 @@ const Globe = () => {
       style={{
         width: "100vw",
         height: "100vh",
-        background: "#010A20", // Bleu spatial plus profond
+        background: "transparent", // Bleu spatial plus profond
       }}
       camera={{ position: [0, 0, 20], fov: 50 }}
     >
       {/* Lumières pour le Globe */}
-      {/* eslint-disable-next-line react/no-unknown-property */}
+     
       <ambientLight intensity={1.5} />
-      {/* eslint-disable-next-line react/no-unknown-property */}
-      <directionalLight position={[5, 5, 5]} intensity={3.0} color={"#ffffff"} />
-      {/* eslint-disable-next-line react/no-unknown-property */}
+   
+      
       <pointLight position={[0, 0, 10]} intensity={12} color={"#99bbff"} />
 
       {/* ✅ Ajout des étoiles animées avec effet de scintillement */}
-      <AnimatedStars />
+      <StaticStars />
+      
 
       {/* ✅ Ajout du Globe 3D */}
-      <GlobeModel />
+      <GlobeModel className="w-full h-full" />
 
       {/* ✅ Désactiver le zoom et améliorer la navigation */}
       <OrbitControls enableZoom={false} enablePan={false} />
