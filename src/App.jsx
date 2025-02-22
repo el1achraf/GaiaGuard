@@ -16,7 +16,7 @@ function App() {
     const loadModel = async () => {
       try {
         // Augmentation du délai à 5 secondes
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         // Attendez que votre modèle soit chargé ici
         // await yourModelLoadingFunction();
         setIsLoading(false);
@@ -60,7 +60,7 @@ function App() {
       <Button setIsVisible={setIsVisible} />
       <Blog />
       
-      <footer className="relative bottom-0 w-full py-4 text-center text-sm   z-50">
+      <footer className="relative bottom-0 w-full py-4 text-center text-sm   z-30">
         <p>&copy; {new Date().getFullYear()} GaiaGuard. All rights reserved.</p>
       </footer>
     </div>

@@ -10,7 +10,7 @@ const Menu = () => {
     <div className="w-full flex justify-start ">
       {/* Icône qui change en fonction de l'état */}
      
-      <div className="  w-28 h-[55px] text-start mx-12 my-9 fixed z-50 group cursor-pointer ">
+      <div className="w-28 h-[55px] text-start mx-12 my-9 fixed z-50 group cursor-pointer animate-slide-left">
 
 <div className="relative ">
 <button
