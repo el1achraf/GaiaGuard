@@ -31,6 +31,14 @@ const StaticStars = () => {
     }
   });
 
+  useFrame(({ clock }) => {
+    if (starsRef.current) {
+      // Rotation de l'ensemble des étoiles sur l'axe Y
+      starsRef.current.rotation.y += 0.001;
+      // Effet de scintillement sur l'opacité
+      starsRef.current.material.opacity = 1.0 + 0.6 * Math.sin(clock.getElapsedTime() * 3);
+    }
+  });
   return (
     <points ref={starsRef}>
       <bufferGeometry attach="geometry">

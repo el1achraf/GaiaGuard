@@ -12,7 +12,7 @@ const GlobeModel = () => {
   useFrame(() => {
     if (globeRef.current) {
       // Rotation lente
-      globeRef.current.rotation.y -= 0.008;
+      globeRef.current.rotation.y += 0.004;
 
       // Animation d'agrandissement progressif
       if (scaleProgress < 4.5) {
