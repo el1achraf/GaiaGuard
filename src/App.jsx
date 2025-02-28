@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#020C1B]  text-white" >
-    {/*  <Stars />*/}
+    <Stars />
       <div className="absolute z-50">
         <Menu />
       </div>
