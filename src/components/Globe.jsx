@@ -1,15 +1,15 @@
 /* eslint-disable react/no-unknown-property */
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
 
-// ✅ Composant pour charger et animer le Globe
+// ✅ Composant pour charger et animer le Globe (sans interaction utilisateur)
 const GlobeModel = () => {
   const { scene } = useGLTF("/models/nglobe.glb");
   const globeRef = useRef();
   const [scaleProgress, setScaleProgress] = useState(0.1);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
+  
   // Mettre à jour la largeur de l'écran dynamiquement
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -19,13 +19,11 @@ const GlobeModel = () => {
 
   // Définir le style du Globe en fonction de la taille de l'écran
   const isLargeScreen = screenWidth >= 1024; // lg: et plus
-
   const globePosition = isLargeScreen ? [0, -1.6, 0] : [0, -1.5, 0];
-  const globeRotation = isLargeScreen ? [0, -Math.PI / 1.68, 0] : [0, -Math.PI / 1.68, 0];
 
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y += 0.004;
+      globeRef.current.rotation.y += 0.004; // Rotation automatique continue
       if (scaleProgress < 4.5) {
         setScaleProgress((prev) => prev + 0.08);
       }
@@ -39,7 +37,6 @@ const GlobeModel = () => {
       object={scene}
       scale={[scaleProgress, scaleProgress, scaleProgress]}
       position={globePosition}
-      rotation={globeRotation}
     />
   );
 };
@@ -75,11 +72,8 @@ const Globe = () => {
       <ambientLight intensity={1.5} />
       <pointLight position={[0, 0, 10]} intensity={12} color={"#99bbff"} />
 
-      {/* ✅ Ajout du Globe 3D avec condition pour grand écran */}
+      {/* ✅ Ajout du Globe 3D avec rotation automatique */}
       <GlobeModel />
-
-      {/* Désactiver le zoom et améliorer la navigation */}
-      <OrbitControls enableZoom={false} enablePan={false} />
     </Canvas>
   );
 };
