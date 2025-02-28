@@ -38,7 +38,7 @@ const Globe = () => {
   return (
     <Canvas
       style={{
-        width: "100vw",
+        width: "100vh",
         height: "100vh",
         background: "transparent",
       }}

@@ -16,7 +16,7 @@ function App() {
     const loadModel = async () => {
       try {
         // Augmentation du délai à 5 secondes
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         // Attendez que votre modèle soit chargé ici
         // await yourModelLoadingFunction();
         setIsLoading(false);
@@ -35,28 +35,28 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#020C1B]  text-white" >
-      <Stars />
+    {/*  <Stars />*/}
       <div className="absolute z-50">
         <Menu />
       </div>
       <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute z-50 top-[14%]  ">
                 
                 <Typewriter
-        words={['Un Œil sur l\'Avenir de la Terre']}
+        words={['An Eye on the Future of the Earth']}
 
         typeSpeed={100}  // Vitesse d’écriture (ms)
         cursor={false}  // Supprime le curseur clignotant
       />
               </p>
-      <h1 className='w-full font-Staatliches text-center tracking-wider absolute z-10 top-[30%] translate-y-[-50%] text-[250px] animate-slideDown opacity-0'>
+      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[30%] translate-y-[-50%] text-[250px] animate-slideDown opacity-0'>
         GaiaGuard
       </h1>
 
-      <div className="flex flex-row justify-center relative z-20 ">
+      {<div className="flex flex-row justify-center relative z-20 ">
         {isVisible && <Globe className="" />}
       
    
-      </div>
+      </div>}
       <Button setIsVisible={setIsVisible} />
       <Blog />
       
