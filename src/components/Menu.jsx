@@ -7,20 +7,20 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full flex justify-start ">
+    <div className="w-full  flex justify-start ">
       {/* Icône qui change en fonction de l'état */}
      
-      <div className="w-28 h-[55px] text-start mx-12 my-9 fixed z-50 group cursor-pointer animate-slide-left">
+      <div className="w-full lg:w-28 h-[55px] text-start lg:mx-12 lg:my-9 fixed  group cursor-pointer animate-slide-left bg-black lg:bg-transparent z-50 ">
 
 <div className="relative ">
 <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-xl transition-transform duration-300"
+        className="absolute top-3 left-4 lg:top-0 lg:left-0 text-2xl lg:text-xl transition-transform duration-300"
       >
         <FontAwesomeIcon icon={isOpen ? faBars : faList} />
       </button>
 
-<div className="   flex flex-col items-start font-Staatliches absolute left-[21px] top-4 group-hover:left-[30px] group-hover:top-6 group-hover:duration-300 ">
+<div className="flex flex-col items-start font-Staatliches absolute right-4 top-3 lg:left-[21px] lg:top-4 lg:group-hover:left-[30px] lg:group-hover:top-6 lg:group-hover:duration-300 ">
   <span className=" ">Gaia</span> 
   <span className="relative -top-3">Guard</span>
 </div>

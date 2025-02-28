@@ -12,7 +12,7 @@ import * as THREE from "three";
 
 // ✅ Composant pour afficher un effet d'étoiles statique avec scintillement
 const StaticStars = () => {
-  const numStars = 20000;
+  const numStars = 18000;
   const starsRef = useRef();
   const positions = useMemo(() => {
     const posArray = new Float32Array(numStars * 3);

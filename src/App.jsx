@@ -34,12 +34,12 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#020C1B]  text-white" >
+    <div className="min-h-screen bg-[#020C1B] flex flex-col justify-between  text-white" >
     <Stars />
       <div className="absolute z-50">
         <Menu />
       </div>
-      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute z-50 top-[14%]  ">
+      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute  top-[14%]  ">
                 
                 <Typewriter
         words={['An Eye on the Future of the Earth']}
@@ -48,7 +48,7 @@ function App() {
         cursor={false}  // Supprime le curseur clignotant
       />
               </p>
-      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[30%] translate-y-[-50%] text-[250px] animate-slideDown opacity-0'>
+      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[20%] lg:top-[30%] translate-y-[-50%] text-[5rem] lg:text-[250px] animate-slideDown opacity-0'>
         GaiaGuard
       </h1>
 
@@ -60,7 +60,8 @@ function App() {
       <Button setIsVisible={setIsVisible} />
       <Blog />
       
-      <footer className="relative bottom-0 w-full py-4 text-center text-sm   z-30">
+      <footer className=" lg:mt-0 w-full py-4 text-center text-sm z-30">
+
         <p>&copy; {new Date().getFullYear()} GaiaGuard. All rights reserved.</p>
       </footer>
     </div>

@@ -15,16 +15,16 @@ const variants = {
 const SubMenu = ({ isOpen }) => {
   return (
     <div
-      className={`fixed top-0 left-0 h-screen bg-black z-40 bg-opacity-90 flex flex-col justify-center transition-all duration-500 ${
-        isOpen ? "w-1/2" : "w-0 overflow-hidden"
-      }`}
+    className={`fixed w-full  top-0 lg:left-0 h-24 lg:h-screen z-40 bg-black py-1 lg:py-0 lg:bg-opacity-90 flex flex-col justify-end lg:justify-center  transition-all duration-500 ${
+      isOpen ? "h-[9rem] lg:w-1/2" : "h-0 lg:w-0 overflow-hidden"
+    }`}
     >
-      <div className="flex flex-col space-y-6 transition-all duration-700 px-6 w-full">
+      <div className="flex flex-col space-y-0 lg:space-y-6 transition-all duration-700 lg:px-6 w-full">
         {["Home", "Explore", "About"].map((text, i) => (
           <motion.div
             key={text}
             className={`flex items-center justify-between w-full group   ${
-              i === 1 ? "ml-36" : "ml-20" // Appliquer ml-10 seulement à Explore
+              i === 1 ? " ml-10 lg:ml-36" : "ml-10 lg:ml-20" // Appliquer ml-10 seulement à Explore
             }`}
             variants={variants}
             initial="hidden"
@@ -32,11 +32,11 @@ const SubMenu = ({ isOpen }) => {
             exit="hidden"
             custom={i}
           >
-            <h1 className="text-6xl md:text-9xl font-Staatliches cursor-pointer ">
+            <h1 className="text-xl lg:text-9xl font-Staatliches cursor-pointer ">
               {text}
               <FontAwesomeIcon
               icon={faArrowRight}
-              className={`text-white text-6xl absolute mt-8 ml-8 w-0 group-hover:w-32 group-hover:duration-500
+              className={` text-white hidden lg:inline  lg:text-6xl absolute lg:mt-8 lg:ml-8 w-0 group-hover:w-32 group-hover:duration-500
                 font-bold`}
             />
             </h1>
