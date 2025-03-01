@@ -16,7 +16,7 @@ function App() {
     const loadModel = async () => {
       try {
         // Augmentation du délai à 5 secondes
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         // Attendez que votre modèle soit chargé ici
         // await yourModelLoadingFunction();
         setIsLoading(false);
@@ -39,7 +39,13 @@ function App() {
       <div className="absolute z-50">
         <Menu />
       </div>
-      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute  top-[15%] lg:top-[14%]  ">
+      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute
+      text-[0.8rem]
+      sm:text-[1rem]
+      top-[16.1%]
+      sm:top-[15%] 
+      lg:top-[16%]
+      xl:top-[14%]  ">
                 
                 <Typewriter
         words={['An Eye on the Future of the Earth']}
@@ -48,7 +54,10 @@ function App() {
         cursor={false}  // Supprime le curseur clignotant
       />
               </p>
-      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[24%] lg:top-[30%] translate-y-[-50%] text-[5rem] lg:text-[250px] animate-slideDown opacity-0'>
+      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 
+      top-[24%] lg:top-[28.5%] xl:top-[30%] translate-y-[-50%] text-[5.5rem] sm:text-[6.5rem]  lg:text-[10rem]
+      xl:text-[250px] animate-slideDown opacity-0
+      '>
         GaiaGuard
       </h1>
 

@@ -12,7 +12,7 @@ import * as THREE from "three";
 
 // ✅ Composant pour afficher un effet d'étoiles statique avec scintillement
 const StaticStars = () => {
-  const numStars = 18000;
+  const numStars = 50000;
   const starsRef = useRef();
   const positions = useMemo(() => {
     const posArray = new Float32Array(numStars * 3);
@@ -43,7 +43,7 @@ const StaticStars = () => {
         />
       </bufferGeometry>
       <pointsMaterial 
-        size={0.12} 
+        size={0.001} 
         color={"#ffffff"} 
         opacity={1}
         sizeAttenuation={true}
