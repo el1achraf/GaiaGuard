@@ -60,7 +60,7 @@ function App() {
       <Button setIsVisible={setIsVisible} />
       <Blog />
       
-      <footer className=" lg:mt-0 w-full py-4 text-center text-sm z-30">
+      <footer className="mt-0 lg:mt-0 w-full py-4 text-center text-sm z-30">
 
         <p>&copy; {new Date().getFullYear()} GaiaGuard. All rights reserved.</p>
       </footer>
