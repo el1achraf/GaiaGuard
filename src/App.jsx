@@ -39,7 +39,7 @@ function App() {
       <div className="absolute z-50">
         <Menu />
       </div>
-      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute  top-[14%]  ">
+      <p className="font-orbitron tracking-widest w-full text-center font-extralight  absolute  top-[15%] lg:top-[14%]  ">
                 
                 <Typewriter
         words={['An Eye on the Future of the Earth']}
@@ -48,7 +48,7 @@ function App() {
         cursor={false}  // Supprime le curseur clignotant
       />
               </p>
-      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[20%] lg:top-[30%] translate-y-[-50%] text-[5rem] lg:text-[250px] animate-slideDown opacity-0'>
+      <h1 className='w-full font-Staatliches  text-center tracking-wider absolute z-10 top-[24%] lg:top-[30%] translate-y-[-50%] text-[5rem] lg:text-[250px] animate-slideDown opacity-0'>
         GaiaGuard
       </h1>
 

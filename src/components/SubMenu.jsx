@@ -15,8 +15,8 @@ const variants = {
 const SubMenu = ({ isOpen }) => {
   return (
     <div
-    className={`fixed w-full  top-0 lg:left-0 h-24 lg:h-screen z-40 bg-black py-1 lg:py-0 lg:bg-opacity-90 flex flex-col justify-end lg:justify-center  transition-all duration-500 ${
-      isOpen ? "h-[9rem] lg:w-1/2" : "h-0 lg:w-0 overflow-hidden"
+    className={`fixed w-full  top-0 lg:left-0 h-24 lg:h-screen z-40 py-1 lg:py-0 lg:bg-opacity-90 flex flex-col justify-end lg:justify-center  transition-all duration-500 ${
+      isOpen ? "h-[9rem] lg:w-1/2 bg-black" : "h-0 lg:w-0 overflow-hidden bg-transparent"
     }`}
     >
       <div className="flex flex-col space-y-0 lg:space-y-6 transition-all duration-700 lg:px-6 w-full">
