@@ -10,9 +10,9 @@ const Menu = () => {
     <div className="w-full  flex justify-start ">
       {/* Icône qui change en fonction de l'état */}
      
-      <div className="w-full lg:w-28 h-[1em] text-start lg:mx-12 lg:my-9 fixed  group cursor-pointer animate-slide-left bg-black lg:bg-transparent z-50 ">
+      <div className={`w-full lg:w-28 h-[1em] text-start lg:mx-12 lg:my-9 fixed  group cursor-pointer animate-slide-left lg:bg-transparent z-50 ${isOpen ? "bg-black":"bg-transparent"} `}>
 
-<div className="relative ">
+<div className="lg:relative ">
 <button
         onClick={() => setIsOpen(!isOpen)}
         className="absolute top-3 left-4 lg:top-0 lg:left-0 text-2xl lg:text-xl transition-transform duration-300"
